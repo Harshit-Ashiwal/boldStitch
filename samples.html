@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoldStitch — Design Samples</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #F7EDDC; color: #141414; font: 500 14px/1.6 Montserrat, sans-serif; padding: 40px clamp(16px, 4vw, 56px) 60px; }
+  header { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+  header img { height: 34px; }
+  h1 { font: 600 clamp(30px, 4vw, 46px)/1 "Cormorant Garamond", serif; margin-top: 14px; }
+  h1 em { color: #8E6C2C; font-weight: 500; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .s { background: #EFE2CB; border-radius: 22px; padding: 14px; display: grid; gap: 14px; }
+  .frame { position: relative; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: #fff; }
+  .frame iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+  .s h2 { font: 600 26px/1 "Cormorant Garamond", serif; }
+  .s ul { padding-left: 18px; color: #5E554B; font-size: 13px; }
+  .s a { justify-self: start; background: #141414; color: #F7EDDC; text-decoration: none; padding: 12px 20px; border-radius: 999px; font: 600 10px Montserrat; letter-spacing: .2em; text-transform: uppercase; }
+  .s a:hover { background: #8E6C2C; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; margin-right: 4px; border: 1px solid rgba(0,0,0,.15); }
+  @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div><img src="assets/brand/logo-dark.png" alt="BoldStitch"><h1>Three design <em>samples</em> to compare</h1></div>
+  <p>Same content, three layouts. Click a sample to open it full-size.</p>
+</header>
+<div class="grid">
+  <div class="s"><div class="frame"><iframe src="sample-1.html" loading="lazy" title="Sample 1"></iframe></div>
+    <h2>1 · Classic</h2>
+    <ul><li>Centred logo hero, two buttons</li><li>Custom order: <b>hero button</b></li><li>Marquee: <span class="sw" style="background:#141414"></span>black + <span class="sw" style="background:#D7B56D"></span>gold</li></ul>
+    <a href="sample-1.html">Open sample 1 →</a></div>
+  <div class="s"><div class="frame"><iframe src="sample-2.html" loading="lazy" title="Sample 2"></iframe></div>
+    <h2>2 · Editorial</h2>
+    <ul><li>Split headline hero, logo in nav</li><li>Custom order: <b>nav bar button</b></li><li>Marquee: <span class="sw" style="background:#D7B56D"></span>gold + <span class="sw" style="background:#141414"></span>black text</li></ul>
+    <a href="sample-2.html">Open sample 2 →</a></div>
+  <div class="s"><div class="frame"><iframe src="sample-3.html" loading="lazy" title="Sample 3"></iframe></div>
+    <h2>3 · Minimal</h2>
+    <ul><li>Centred-logo nav, script hero</li><li>Custom order: <b>footer band + footer link</b></li><li>Marquee: <span class="sw" style="background:#6E1F2C"></span>burgundy + <span class="sw" style="background:#F3E6D0"></span>cream outline</li></ul>
+    <a href="sample-3.html">Open sample 3 →</a></div>
+</div>
+<script>
+  const fit = () => document.querySelectorAll('.frame').forEach(f => f.querySelector('iframe').style.transform = `scale(${f.clientWidth / 1440})`);
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>

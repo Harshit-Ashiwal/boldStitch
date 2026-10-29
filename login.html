@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — BoldStitch</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/icon-180.png">
+<meta name="theme-color" content="#141314">
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root { --cream: #F7EDDC; --cream-2: #EFE2CB; --sand: #E3D5BE; --ink: #1A1714; --ink-soft: #5B534B; --gold: #8E6C2C; --gold-2: #D7B56D; --night: #141314;
+          --line: rgba(26, 23, 20, .14); --serif: "Cormorant Garamond", Georgia, serif; --sans: Montserrat, system-ui, sans-serif; --script: "Great Vibes", cursive; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body { background: var(--cream); color: var(--ink); font: 400 15px/1.6 var(--sans); }
+  a { color: inherit; }
+  button, input { font: inherit; color: inherit; }
+  img { display: block; max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  .shell { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+  /* ---------- brand side ---------- */
+  .brand { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 30% 10%, #2a241d, var(--night) 60%); color: #EDE3D2;
+           padding: clamp(28px, 4vw, 56px); display: grid; grid-template-rows: auto 1fr auto; }
+  .brand .logo { width: 190px; }
+  .brand .art { align-self: center; justify-self: center; width: min(520px, 92%); position: relative; }
+  .brand .art img { filter: drop-shadow(0 40px 40px rgba(0, 0, 0, .55)); animation: bob 6s ease-in-out infinite; }
+  .brand .art::before { content: ""; position: absolute; inset: 12% 8% 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(215, 181, 109, .22), transparent); }
+  @keyframes bob { 50% { translate: 0 -12px; } }
+  .brand h2 { font: 500 clamp(30px, 3.4vw, 46px)/1.1 var(--serif); max-width: 16ch; }
+  .brand h2 em { color: var(--gold-2); }
+  .brand .script { font-family: var(--script); color: var(--gold-2); font-size: 30px; margin-top: 6px; }
+  .brand .thread { position: absolute; left: -5%; right: -5%; top: 22%; width: 110%; height: 180px; pointer-events: none; opacity: .5; }
+  .brand .thread path { fill: none; stroke: var(--gold-2); stroke-width: 1.2; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 3.5s .3s ease forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* ---------- form side ---------- */
+  .side { display: grid; place-items: center; padding: clamp(24px, 5vw, 64px) clamp(16px, 5vw, 64px); position: relative; }
+  .back { position: absolute; top: 28px; left: clamp(16px, 5vw, 64px); font: 600 10px var(--sans); letter-spacing: .22em; text-transform: uppercase; text-decoration: none; color: var(--ink-soft); }
+  .back:hover { color: var(--gold); }
+  .card { width: min(440px, 100%); }
+  .card .mobile-logo { display: none; width: 170px; margin-bottom: 26px; }
+  .eyebrow { font: 600 10px var(--sans); letter-spacing: .34em; text-transform: uppercase; color: var(--gold); }
+  h1 { font: 600 clamp(34px, 4vw, 46px)/1.05 var(--serif); margin: 10px 0 6px; }
+  h1 em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .sub { color: var(--ink-soft); font-size: 14px; }
+
+  .tabs { position: relative; display: grid; grid-template-columns: 1fr 1fr; margin: 28px 0 24px; border-bottom: 1px solid var(--line); }
+  .tabs button { background: none; border: 0; padding: 12px 0; font: 600 11px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); cursor: pointer; transition: color .3s; }
+  .tabs button.on { color: var(--ink); }
+  .tabs i { position: absolute; bottom: -1px; left: 0; width: 50%; height: 2px; background: var(--gold); transition: transform .45s cubic-bezier(.2, .7, .2, 1); }
+  .tabs[data-tab="signup"] i { transform: translateX(100%); }
+
+  .pane { display: none; animation: paneIn .5s cubic-bezier(.2, .7, .2, 1); }
+  .pane.on { display: grid; gap: 16px; }
+  @keyframes paneIn { from { opacity: 0; translate: 0 12px; } }
+
+  .field { position: relative; }
+  .field input { width: 100%; height: 56px; padding: 22px 16px 6px; border-radius: 14px; border: 1px solid var(--line); background: #FBF7F0; outline: none; transition: border-color .3s, box-shadow .3s; }
+  .field label { position: absolute; left: 17px; top: 18px; font-size: 14px; color: var(--ink-soft); pointer-events: none; transition: .25s cubic-bezier(.2, .7, .2, 1); }
+  .field input:focus, .field input:not(:placeholder-shown) { border-color: rgba(142, 108, 44, .7); }
+  .field input:focus { box-shadow: 0 0 0 4px rgba(215, 181, 109, .22); }
+  .field input:focus + label, .field input:not(:placeholder-shown) + label { top: 8px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .field .eye { position: absolute; right: 8px; top: 8px; width: 40px; height: 40px; border: 0; background: none; border-radius: 10px; cursor: pointer; color: var(--ink-soft); display: grid; place-items: center; }
+  .field .eye:hover { background: var(--cream-2); }
+  .field.err input { border-color: #B24A3B; }
+  .field .msg { display: none; font-size: 12px; color: #B24A3B; margin: 6px 4px 0; }
+  .field.err .msg { display: block; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: -6px; }
+  .meter i { height: 3px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px); transition: background .3s; }
+  .meter[data-s="1"] i:nth-child(-n+1), .meter[data-s="2"] i:nth-child(-n+2), .meter[data-s="3"] i:nth-child(-n+3), .meter[data-s="4"] i { background: repeating-linear-gradient(90deg, var(--gold-2) 0 6px, transparent 6px 10px); }
+  .meter-label { font-size: 11px; color: var(--ink-soft); margin-top: -10px; }
+
+  .line { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; }
+  .check { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; color: var(--ink-soft); }
+  .check input { appearance: none; width: 18px; height: 18px; border: 1px solid rgba(26, 23, 20, .35); border-radius: 5px; display: grid; place-items: center; cursor: pointer; transition: .2s; flex: none; }
+  .check input:checked { background: var(--ink); border-color: var(--ink); }
+  .check input:checked::after { content: "✓"; color: var(--gold-2); font-size: 12px; line-height: 1; }
+  .link { background: none; border: 0; color: var(--gold); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(142, 108, 44, .35); }
+
+  .btn { position: relative; height: 56px; border-radius: 999px; border: 0; background: var(--ink); color: var(--cream); font: 600 11px var(--sans); letter-spacing: .24em; text-transform: uppercase;
+         cursor: pointer; overflow: hidden; transition: background .3s, transform .3s; }
+  .btn:hover { background: #2a241d; transform: translateY(-1px); }
+  .btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(215, 181, 109, .35) 50%, transparent 60%) -200% 0 / 50% 100% no-repeat; transition: background-position .9s; }
+  .btn:hover::after { background-position: 300% 0; }
+  .btn.busy { pointer-events: none; color: transparent; }
+  .btn.busy::before { content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 20px; margin: -10px; border-radius: 50%; border: 2px solid rgba(215, 181, 109, .3); border-top-color: var(--gold-2); animation: spin .8s linear infinite; }
+  @keyframes spin { to { rotate: 360deg; } }
+
+  .or { display: flex; align-items: center; gap: 14px; color: var(--ink-soft); font: 500 10px var(--sans); letter-spacing: .3em; text-transform: uppercase; }
+  .or::before, .or::after { content: ""; flex: 1; border-top: 1px dashed rgba(142, 108, 44, .4); }
+  .social { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .social button { height: 50px; border-radius: 999px; border: 1px solid var(--line); background: #FBF7F0; display: flex; align-items: center; justify-content: center; gap: 10px; font: 600 12px var(--sans); cursor: pointer; transition: .3s; }
+  .social button:hover { border-color: var(--ink); }
+  .fine { font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  /* ---------- signed-in / signed-out states ---------- */
+  .state { text-align: center; display: grid; justify-items: center; gap: 14px; }
+  .state .avatar { width: 84px; height: 84px; font-size: 26px; }
+  .state .avatar::after { inset: -6px; }
+  .state .script { font-family: var(--script); color: var(--gold); font-size: 44px; line-height: 1; }
+  .state .actions { display: grid; gap: 10px; width: 100%; margin-top: 10px; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--cream); }
+  .btn.ghost.danger { color: #9A3B2E; border-color: rgba(154, 59, 46, .45); }
+  .btn.ghost.danger:hover { background: #9A3B2E; color: #fff; }
+  .sent { display: grid; gap: 12px; justify-items: center; text-align: center; padding: 16px 0; }
+  .sent svg { width: 56px; height: 56px; }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; }
+    .brand { display: none; }
+    .card .mobile-logo { display: block; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="brand">
+    <a href="index.html" aria-label="BoldStitch home"><img class="logo" src="assets/brand/logo-light.png" alt="BoldStitch"></a>
+    <svg class="thread" viewBox="0 0 800 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 C150 20 300 160 450 80 S700 10 800 60"/></svg>
+    <div class="art"><img src="assets/boxes-open.png" alt="BoldStitch cream and black packaging"></div>
+    <div>
+      <h2>Every thread <em>tells a story</em>. Sign in to continue yours.</h2>
+      <p class="script">Wear your story</p>
+    </div>
+  </aside>
+
+  <main class="side">
+    <a class="back" href="index.html">← Back to store</a>
+    <div class="card" id="card">
+      <img class="mobile-logo" src="assets/brand/logo-dark.png" alt="BoldStitch">
+
+      <!-- signed out: sign in / create account / reset -->
+      <section id="auth">
+        <p class="eyebrow" id="eyebrow">Welcome back</p>
+        <h1 id="heading">Sign in to <em>BoldStitch</em></h1>
+        <p class="sub" id="subline">Track orders, save your favourites and check out faster.</p>
+
+        <div class="tabs" id="tabs" data-tab="signin">
+          <button class="on" data-tab="signin">Sign in</button>
+          <button data-tab="signup">Create account</button>
+          <i></i>
+        </div>
+
+        <form class="pane on" id="signin" novalidate>
+          <div class="field"><input id="si-email" type="email" placeholder=" " autocomplete="email"><label for="si-email">Email address</label><p class="msg">Enter a valid email address.</p></div>
+          <div class="field"><input id="si-pass" type="password" placeholder=" " autocomplete="current-password"><label for="si-pass">Password</label>
+            <button type="button" class="eye" aria-label="Show password"></button><p class="msg">Password must be at least 6 characters.</p></div>
+          <div class="line">
+            <label class="check"><input type="checkbox" id="si-remember" checked>Remember me</label>
+            <button type="button" class="link" data-go="reset">Forgot password?</button>
+          </div>
+          <button class="btn" type="submit">Sign in</button>
+          <div class="or">or</div>
+          <div class="social">
+            <button type="button" data-social="Google"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Google</button>
+            <button type="button" data-social="Apple"><svg width="16" height="18" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Apple</button>
+          </div>
+        </form>
+
+        <form class="pane" id="signup" novalidate>
+          <div class="field"><input id="su-name" placeholder=" " autocomplete="name"><label for="su-name">Full name</label><p class="msg">Tell us your name.</p></div>
+          <div class="row2">
+            <div class="field"><input id="su-email" type="email" placeholder=" " autocomplete="email"><label for="su-email">Email</label><p class="msg">Enter a valid email.</p></div>
+            <div class="field"><input id="su-phone" type="tel" placeholder=" " autocomplete="tel"><label for="su-phone">Phone (optional)</label></div>
+          </div>
+          <div class="field"><input id="su-pass" type="password" placeholder=" " autocomplete="new-password"><label for="su-pass">Create password</label>
+            <button type="button" class="eye" aria-label="Show password"></button><p class="msg">Use at least 6 characters.</p></div>
+          <div class="meter" id="meter" data-s="0"><i></i><i></i><i></i><i></i></div>
+          <p class="meter-label" id="meterLabel">Use 8+ characters with a number and a symbol.</p>
+          <label class="check"><input type="checkbox" id="su-terms">I agree to the Terms &amp; Privacy Policy</label>
+          <button class="btn" type="submit">Create account</button>
+          <p class="fine">Already stitched in? <button type="button" class="link" data-tab-go="signin">Sign in</button></p>
+        </form>
+
+        <form class="pane" id="reset" novalidate>
+          <div class="field"><input id="rs-email" type="email" placeholder=" " autocomplete="email"><label for="rs-email">Email address</label><p class="msg">Enter a valid email address.</p></div>
+          <button class="btn" type="submit">Send reset link</button>
+          <p class="fine"><button type="button" class="link" data-tab-go="signin">← Back to sign in</button></p>
+        </form>
+      </section>
+
+      <!-- signed in -->
+      <section class="state" id="signedIn" hidden>
+        <span class="avatar" id="siAvatar"></span>
+        <p class="script">Hello again</p>
+        <h1 style="margin:0" id="siName"></h1>
+        <p class="sub" id="siEmail"></p>
+        <div class="actions">
+          <a class="btn" href="index.html" style="display:grid;place-items:center;text-decoration:none">Continue shopping</a>
+          <button class="btn ghost danger" id="logout">Log out</button>
+        </div>
+      </section>
+
+      <!-- just logged out -->
+      <section class="state" id="signedOut" hidden>
+        <svg width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="40" fill="#141314"/><circle cx="42" cy="42" r="34" fill="none" stroke="#D7B56D" stroke-dasharray="4 4" opacity=".6"/><path d="M34 30h-6v24h6M44 34l8 8-8 8M52 42H36" fill="none" stroke="#D7B56D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p class="script">See you soon</p>
+        <h1 style="margin:0">You've been <em>logged out</em></h1>
+        <p class="sub">Thanks for being a part of our journey. Your bag will be waiting.</p>
+        <div class="actions">
+          <button class="btn" id="again">Sign in again</button>
+          <a class="btn ghost" href="index.html" style="display:grid;place-items:center;text-decoration:none">Back to store</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/needle.js"></script>
+<script src="assets/js/account.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const EYE_OPEN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>';
+const EYE_SHUT = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 3.9M6.6 6.6C3.9 8.4 2 12 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
+const COPY = {
+  signin: ['Welcome back', 'Sign in to <em>BoldStitch</em>', 'Track orders, save your favourites and check out faster.'],
+  signup: ['Join the story', 'Create your <em>account</em>', 'Be first to know about new drops and custom offers.'],
+  reset:  ['Forgot password', 'Reset your <em>password</em>', "Enter your email and we'll send you a link to set a new one."],
+};
+
+function show(view) {
+  if (view === 'auth' || view === 'signedIn' || view === 'signedOut') {
+    ['auth', 'signedIn', 'signedOut'].forEach(id => $('#' + id).hidden = id !== view);
+    if (view === 'signedIn') {
+      const u = BSAuth.get();
+      $('#siAvatar').textContent = BSAuth.initials(u.name); $('#siName').textContent = u.name; $('#siEmail').textContent = u.email;
+    }
+    return;
+  }
+  // a form pane inside #auth
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === view));
+  const tabs = $('#tabs');
+  tabs.style.display = view === 'reset' ? 'none' : '';
+  if (view !== 'reset') { tabs.dataset.tab = view; tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab === view)); }
+  const [e, h, s] = COPY[view];
+  $('#eyebrow').textContent = e; $('#heading').innerHTML = h; $('#subline').textContent = s;
+  const first = $(`#${view} input`); if (first && matchMedia('(pointer: fine)').matches) first.focus();
+}
+
+document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => show(b.dataset.tab));
+document.querySelectorAll('[data-tab-go]').forEach(b => b.onclick = () => { $('#reset').innerHTML = $('#reset').dataset.orig || $('#reset').innerHTML; bindReset(); show(b.dataset.tabGo); });
+document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => show(b.dataset.go));
+document.querySelectorAll('.eye').forEach(b => {
+  b.innerHTML = EYE_OPEN;
+  b.onclick = () => { const i = b.previousElementSibling.previousElementSibling; const on = i.type === 'password'; i.type = on ? 'text' : 'password'; b.innerHTML = on ? EYE_SHUT : EYE_OPEN; b.setAttribute('aria-label', on ? 'Hide password' : 'Show password'); };
+});
+document.querySelectorAll('[data-social]').forEach(b => b.onclick = () => bsToast(`${b.dataset.social} sign-in will be connected when the store goes live.`));
+
+const emailOk = v => /^\S+@\S+\.\S+$/.test(v.trim());
+function check(input, ok) { input.closest('.field').classList.toggle('err', !ok); return ok; }
+document.querySelectorAll('.field input').forEach(i => i.addEventListener('input', () => i.closest('.field').classList.remove('err')));
+
+function busy(form, done) {
+  const btn = form.querySelector('.btn'); btn.classList.add('busy');
+  setTimeout(() => { btn.classList.remove('busy'); done(); }, 1100);
+}
+
+$('#signin').addEventListener('submit', e => {
+  e.preventDefault();
+  const em = $('#si-email'), pw = $('#si-pass');
+  const ok = [check(em, emailOk(em.value)), check(pw, pw.value.length >= 6)].every(Boolean);
+  if (!ok) return;
+  busy(e.target, () => {
+    const name = em.value.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    BSAuth.set({ name, email: em.value.trim() }, $('#si-remember').checked);
+    location.href = 'index.html?welcome=1';
+  });
+});
+
+$('#su-pass').addEventListener('input', e => {
+  const v = e.target.value;
+  const s = !v ? 0 : [v.length >= 8, /\d/.test(v), /[^\w\s]/.test(v), /[A-Z]/.test(v) && /[a-z]/.test(v)].filter(Boolean).length || 1;
+  $('#meter').dataset.s = s;
+  $('#meterLabel').textContent = ['Use 8+ characters with a number and a symbol.', 'Weak — keep going', 'Fair — add a number or symbol', 'Good — almost there', 'Strong — nicely stitched'][s];
+});
+$('#signup').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = $('#su-name'), em = $('#su-email'), pw = $('#su-pass'), terms = $('#su-terms');
+  const ok = [check(n, n.value.trim().length > 1), check(em, emailOk(em.value)), check(pw, pw.value.length >= 6)].every(Boolean);
+  if (!ok) return;
+  if (!terms.checked) { bsToast('Please accept the Terms & Privacy Policy.'); return; }
+  busy(e.target, () => {
+    BSAuth.set({ name: n.value.trim(), email: em.value.trim() }, true);
+    location.href = 'index.html?welcome=new';
+  });
+});
+
+function bindReset() {
+  const f = $('#reset');
+  if (!f.dataset.orig) f.dataset.orig = f.innerHTML;
+  f.querySelectorAll('[data-tab-go]').forEach(b => b.onclick = () => { f.innerHTML = f.dataset.orig; bindReset(); show('signin'); });
+  f.onsubmit = e => {
+    e.preventDefault();
+    const em = $('#rs-email');
+    if (!check(em, emailOk(em.value))) return;
+    busy(f, () => {
+      const addr = em.value.trim();
+      f.innerHTML = `<div class="sent"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="#141314"/><path d="M17 29l7 7 15-16" fill="none" stroke="#D7B56D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2 style="font:600 26px var(--serif)">Check your inbox</h2><p class="sub">If an account exists for <b></b>, a reset link is on its way.</p>
+        <button type="button" class="link" data-tab-go="signin">← Back to sign in</button></div>`;
+      f.querySelector('b').textContent = addr;
+      f.querySelector('[data-tab-go]').onclick = () => { f.innerHTML = f.dataset.orig; bindReset(); show('signin'); };
+    });
+  };
+}
+bindReset();
+
+$('#logout').onclick = () => { BSAuth.clear(); show('signedOut'); };
+$('#again').onclick = () => { show('auth'); show('signin'); };
+
+show(BSAuth.get() ? 'signedIn' : 'auth');
+if (location.hash === '#signup' && !BSAuth.get()) show('signup');
+</script>
+</body>
+</html>

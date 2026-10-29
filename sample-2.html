@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" data-v="2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoldStitch — Wear Your Story (Sample 2 · Editorial)</title>
+<meta name="description" content="BoldStitch — premium tees, custom printing and embroidery. Wear your story.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/icon-180.png">
+<meta name="theme-color" content="#141314">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>
+  // premium intro plays once per browser session
+  try { if (!sessionStorage.getItem('bs_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('is-loading'); } catch (e) {}
+</script>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="ld-panel top"></div><div class="ld-panel bottom"></div>
+  <div class="ld-center">
+    <div class="ld-logo"><img src="assets/brand/logo-light.png" alt=""><img class="ld-needle" src="assets/brand/needle.png" alt=""></div>
+    <svg class="ld-thread" viewBox="0 0 400 12" preserveAspectRatio="none"><path d="M0 6 C80 0 160 12 240 6 S360 0 400 6"/></svg>
+    <div class="ld-meta"><span>Wear your story</span><b id="ldPct">000</b></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gx" x1="0" x2="1">
+      <stop offset="0" stop-opacity=".34"/><stop offset=".14" stop-opacity=".06"/><stop offset=".42" stop-color="#fff" stop-opacity=".09"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity=".05"/><stop offset=".86" stop-opacity=".08"/><stop offset="1" stop-opacity=".36"/>
+    </linearGradient>
+    <linearGradient id="gy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset=".78" stop-opacity=".05"/><stop offset="1" stop-opacity=".24"/>
+    </linearGradient>
+    <linearGradient id="wire" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8d8d8d"/><stop offset=".5" stop-color="#2a2a2a"/><stop offset="1" stop-color="#555"/></linearGradient>
+    <clipPath id="c-tee"><path d="M78 56 C88 66 112 66 122 56 L150 64 C160 68 168 74 174 82 L196 122 C188 130 176 134 164 136 L156 116 C155 160 156 210 158 252 C134 257 66 257 42 252 C44 210 45 160 44 116 L36 136 C24 134 12 130 4 122 L26 82 C32 74 40 68 50 64 Z"/></clipPath>
+    <clipPath id="c-hoodie"><path d="M70 58 C86 74 114 74 130 58 L154 66 C164 72 170 80 174 92 L194 200 C196 206 192 210 186 211 L170 213 C166 213 164 210 163 206 L152 118 C152 166 153 214 154 250 C130 256 70 256 46 250 C47 214 48 166 48 118 L37 206 C36 210 34 213 30 213 L14 211 C8 210 4 206 6 200 L26 92 C30 80 36 72 46 66 Z"/></clipPath>
+    <clipPath id="c-sweat"><path d="M76 56 C88 68 112 68 124 56 L154 66 C164 72 170 80 174 92 L194 200 C196 206 192 210 186 211 L170 213 C166 213 164 210 163 206 L152 118 C152 166 153 214 154 250 C130 256 70 256 46 250 C47 214 48 166 48 118 L37 206 C36 210 34 213 30 213 L14 211 C8 210 4 206 6 200 L26 92 C30 80 36 72 46 66 Z"/></clipPath>
+
+    <symbol id="hanger" viewBox="0 0 200 260">
+      <path d="M100 50 V36 C100 28 111 26 111 17 C111 8 101 5 95 12" fill="none" stroke="url(#wire)" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M100 50 V36 C100 28 111 26 111 17" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".9" stroke-linecap="round" transform="translate(-.8 0)"/>
+      <path d="M42 68 L100 46 L158 68" fill="none" stroke="#2a2a2a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="tee" viewBox="0 0 200 260">
+      <path d="M80 56 C86 49 114 49 120 56 C112 63 88 63 80 56 Z" fill="currentColor"/>
+      <path d="M80 56 C86 49 114 49 120 56 C112 63 88 63 80 56 Z" fill="#000" fill-opacity=".42"/>
+      <rect x="94" y="52.5" width="12" height="5.5" rx="1" fill="#D7B56D"/>
+      <path d="M78 56 C88 66 112 66 122 56 L150 64 C160 68 168 74 174 82 L196 122 C188 130 176 134 164 136 L156 116 C155 160 156 210 158 252 C134 257 66 257 42 252 C44 210 45 160 44 116 L36 136 C24 134 12 130 4 122 L26 82 C32 74 40 68 50 64 Z" fill="currentColor"/>
+      <g clip-path="url(#c-tee)">
+        <rect width="200" height="260" fill="url(#gx)"/><rect width="200" height="260" fill="url(#gy)"/>
+        <g fill="none" stroke-linecap="round"><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M100 120 C102 160 98 210 100 254" stroke="#000" stroke-opacity=".04" stroke-width="16"/><path d="M74 96 C88 130 94 180 96 250" stroke="#fff" stroke-opacity=".055" stroke-width="26"/><path d="M126 104 C118 140 114 190 116 250" stroke="#fff" stroke-opacity=".055" stroke-width="18"/><path d="M44 238 C64 244 76 236 96 242 C116 248 132 238 156 242" stroke="#000" stroke-opacity=".08" stroke-width="12"/><path d="M44 116 C56 120 62 126 66 136" stroke="#000" stroke-opacity=".16" stroke-width="7"/><path d="M156 116 C144 120 138 126 134 136" stroke="#000" stroke-opacity=".16" stroke-width="7"/><path d="M22 96 C26 110 24 120 20 128" stroke="#000" stroke-opacity=".08" stroke-width="10"/><path d="M178 96 C174 110 176 120 180 128" stroke="#000" stroke-opacity=".08" stroke-width="10"/></g>
+        <path d="M50 64 C46 84 46 100 44 116 M150 64 C154 84 154 100 156 116" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1.4"/>
+        <path d="M8 119 L36 131 M192 119 L164 131 M44 246 C80 250 120 250 156 246" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="1" stroke-dasharray="3 2.5"/>
+      </g>
+      <path d="M78 56 C88 67 112 67 122 56" fill="none" stroke="currentColor" stroke-width="6"/>
+      <path d="M78 56 C88 67 112 67 122 56" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="6"/>
+      <path d="M79 58.6 C89 69 111 69 121 58.6" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width=".9"/>
+    </symbol>
+
+    <symbol id="hoodie" viewBox="0 0 200 260">
+      <path d="M64 62 C58 22 142 22 136 62 C124 84 76 84 64 62 Z" fill="currentColor"/>
+      <path d="M64 62 C58 22 142 22 136 62 C124 84 76 84 64 62 Z" fill="#000" fill-opacity=".38"/>
+      <path d="M72 50 C76 34 124 34 128 50" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="5"/>
+      <path d="M70 58 C86 74 114 74 130 58 L154 66 C164 72 170 80 174 92 L194 200 C196 206 192 210 186 211 L170 213 C166 213 164 210 163 206 L152 118 C152 166 153 214 154 250 C130 256 70 256 46 250 C47 214 48 166 48 118 L37 206 C36 210 34 213 30 213 L14 211 C8 210 4 206 6 200 L26 92 C30 80 36 72 46 66 Z" fill="currentColor"/>
+      <g clip-path="url(#c-hoodie)">
+        <rect width="200" height="260" fill="url(#gx)"/><rect width="200" height="260" fill="url(#gy)"/>
+        <g fill="none" stroke-linecap="round"><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M100 120 C102 160 98 210 100 254" stroke="#000" stroke-opacity=".04" stroke-width="16"/><path d="M74 96 C88 130 94 180 96 250" stroke="#fff" stroke-opacity=".055" stroke-width="26"/><path d="M126 104 C118 140 114 190 116 250" stroke="#fff" stroke-opacity=".055" stroke-width="18"/><path d="M44 238 C64 244 76 236 96 242 C116 248 132 238 156 242" stroke="#000" stroke-opacity=".08" stroke-width="12"/><path d="M30 112 C26 146 22 176 18 200" stroke="#000" stroke-opacity=".1" stroke-width="12"/><path d="M170 112 C174 146 178 176 182 200" stroke="#000" stroke-opacity=".1" stroke-width="12"/><path d="M38 140 C40 162 38 184 34 202" stroke="#fff" stroke-opacity=".06" stroke-width="7"/><path d="M162 140 C160 162 162 184 166 202" stroke="#fff" stroke-opacity=".04" stroke-width="7"/><path d="M48 118 C52 128 54 136 52 146" stroke="#000" stroke-opacity=".16" stroke-width="7"/><path d="M152 118 C148 128 146 136 148 146" stroke="#000" stroke-opacity=".16" stroke-width="7"/></g>
+        <path d="M66 190 L134 190 L144 236 L56 236 Z" fill="#000" fill-opacity=".05" stroke="#000" stroke-opacity=".2" stroke-width="1.2"/>
+        <path d="M66 190 C62 206 58 222 56 236 M134 190 C138 206 142 222 144 236" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="3"/>
+        <path d="M46 244 C80 249 120 249 154 244" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="14"/>
+        <path d="M46 238 C80 243 120 243 154 238" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="1"/>
+        <path d="M8 200 L32 206 M192 200 L168 206" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="12"/>
+      </g>
+      <path d="M70 58 C80 80 92 92 100 96 C108 92 120 80 130 58" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="3"/>
+      <path d="M93 92 C92 108 94 122 92 136 M107 92 C108 108 106 122 108 136" fill="none" stroke="#EFE8DA" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M92 133 V140 M108 133 V140" stroke="#9a9a9a" stroke-width="2.6" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="sweat" viewBox="0 0 200 260">
+      <path d="M78 56 C86 49 114 49 122 56 C112 64 88 64 78 56 Z" fill="currentColor"/>
+      <path d="M78 56 C86 49 114 49 122 56 C112 64 88 64 78 56 Z" fill="#000" fill-opacity=".42"/>
+      <rect x="94" y="52.5" width="12" height="5.5" rx="1" fill="#D7B56D"/>
+      <path d="M76 56 C88 68 112 68 124 56 L154 66 C164 72 170 80 174 92 L194 200 C196 206 192 210 186 211 L170 213 C166 213 164 210 163 206 L152 118 C152 166 153 214 154 250 C130 256 70 256 46 250 C47 214 48 166 48 118 L37 206 C36 210 34 213 30 213 L14 211 C8 210 4 206 6 200 L26 92 C30 80 36 72 46 66 Z" fill="currentColor"/>
+      <g clip-path="url(#c-sweat)">
+        <rect width="200" height="260" fill="url(#gx)"/><rect width="200" height="260" fill="url(#gy)"/>
+        <g fill="none" stroke-linecap="round"><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M62 80 C74 104 84 130 86 168 C88 200 84 228 86 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".07" stroke-width="22"/><path d="M138 80 C126 104 116 130 114 168 C112 200 116 228 114 254" stroke="#000" stroke-opacity=".05" stroke-width="8"/><path d="M100 120 C102 160 98 210 100 254" stroke="#000" stroke-opacity=".04" stroke-width="16"/><path d="M74 96 C88 130 94 180 96 250" stroke="#fff" stroke-opacity=".055" stroke-width="26"/><path d="M126 104 C118 140 114 190 116 250" stroke="#fff" stroke-opacity=".055" stroke-width="18"/><path d="M44 238 C64 244 76 236 96 242 C116 248 132 238 156 242" stroke="#000" stroke-opacity=".08" stroke-width="12"/><path d="M30 112 C26 146 22 176 18 200" stroke="#000" stroke-opacity=".1" stroke-width="12"/><path d="M170 112 C174 146 178 176 182 200" stroke="#000" stroke-opacity=".1" stroke-width="12"/><path d="M38 140 C40 162 38 184 34 202" stroke="#fff" stroke-opacity=".06" stroke-width="7"/><path d="M162 140 C160 162 162 184 166 202" stroke="#fff" stroke-opacity=".04" stroke-width="7"/><path d="M48 118 C52 128 54 136 52 146" stroke="#000" stroke-opacity=".16" stroke-width="7"/><path d="M152 118 C148 128 146 136 148 146" stroke="#000" stroke-opacity=".16" stroke-width="7"/></g>
+        <path d="M46 244 C80 249 120 249 154 244" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="14"/>
+        <path d="M8 200 L32 206 M192 200 L168 206" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="12"/>
+        <path d="M50 66 C46 86 46 104 48 118 M150 66 C154 86 154 104 152 118" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="1.4"/>
+      </g>
+      <path d="M76 56 C88 69 112 69 124 56" fill="none" stroke="currentColor" stroke-width="9"/>
+      <path d="M76 56 C88 69 112 69 124 56" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="9"/>
+      <path d="M76 56 C88 69 112 69 124 56" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="9" stroke-dasharray="1 2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="top">
+  <a class="brand" href="#top" aria-label="BoldStitch home"><img src="assets/brand/logo-dark.png" alt="BoldStitch"></a>
+  <ul><li><a href="#collection">Shop</a></li><li><a href="#services">Services</a></li><li><a href="#packaging">Packaging</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+  <div class="nav-right"><a class="nav-cta" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M20 4 L5 19"/><ellipse cx="18.5" cy="5.6" rx=".8" ry="1.8" transform="rotate(45 18.5 5.6)"/><path d="M19 6 C24 11 13 13 12 17 C11 21 16 22 20 20"/></svg><span>Custom order</span></a><div class="account" id="account"></div><a class="bag" href="#collection" aria-label="Bag">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <b id="bagCount">0</b>
+    </a></div>
+</nav>
+
+<!-- 1 · HERO -->
+<section class="hero" id="top">
+  <div class="drop" id="drop" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <div><p class="eyebrow" style="margin-bottom:14px">New collection · Premium streetwear</p><h1>Wear your <em>story.</em></h1></div>
+    <div class="side"><p>Heavyweight tees, hoodies and crews — finished with custom printing and embroidery, delivered like a gift.</p><a class="btn" href="#collection">Shop the collection</a></div>
+  </div>
+  <div class="rack">
+    <div class="rail"><div class="track" id="track"></div></div>
+    <div class="cap" id="cap" aria-live="polite">
+      <p class="name">New collection</p>
+      <p class="desc">Hover a piece to turn it around · click to look closer</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>Wear your story</span><span>Premium tees</span><span>Custom printing</span><span>Fine embroidery</span><span>Gift-ready packaging</span>
+  <span>Wear your story</span><span>Premium tees</span><span>Custom printing</span><span>Fine embroidery</span><span>Gift-ready packaging</span>
+</div></div>
+
+<!-- 2 · SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">What we stitch</p><h2 class="title">Three crafts. <em>One story</em> — yours.</h2></div>
+    <div class="svc reveal">
+      <article><span class="num">01</span>
+        <svg viewBox="0 0 48 48"><path d="M17 7 L6 12 L3 21 L10 23 L11 19 L11 42 L37 42 L37 19 L38 23 L45 21 L42 12 L31 7 C29 11 19 11 17 7 Z"/></svg>
+        <h3>Premium Tees</h3><p>Heavyweight combed cotton, cut for a clean drape and built to keep its shape wash after wash.</p></article>
+      <article><span class="num">02</span>
+        <svg viewBox="0 0 48 48"><path d="M14 16 V6 H34 V16"/><rect x="5" y="16" width="38" height="18" rx="3"/><path d="M13 28 H35 V42 H13 Z M18 34 H30 M18 38 H26"/></svg>
+        <h3>Printing</h3><p>Rich, crack-resistant prints for your artwork, team or brand — from a single piece to full runs.</p></article>
+      <article><span class="num">03</span>
+        <svg viewBox="0 0 48 48"><path d="M40 5 L9 40"/><ellipse cx="37" cy="8.5" rx="1.6" ry="3.4" transform="rotate(42 37 8.5)"/><path d="M38 9 C46 18 30 22 26 30 C22 38 34 42 42 38"/></svg>
+        <h3>Embroidery</h3><p>Precise, dense stitching for logos, monograms and names, finished by hand so every thread sits right.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · COLLECTION -->
+<section class="collection" id="collection">
+  <div class="wrap">
+    <div class="head center reveal"><p class="eyebrow">The collection</p><h2 class="title">Choose your <em>story</em>.</h2><div class="rule"></div></div>
+    <div class="cats" id="cats"></div>
+    <div class="shop" id="shop" hidden>
+      <div class="shop-head"><button class="back" id="back">← All categories</button><div class="tabs" id="tabs"></div></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · PACKAGING -->
+<section class="pack" id="packaging">
+  <div class="wrap pack-grid">
+    <div class="vids reveal">
+      <figure><video src="media/cream-open-lid.mp4" autoplay muted loop playsinline></video><figcaption>Cream edition</figcaption></figure>
+      <figure><video src="media/black-open-lid.mp4" autoplay muted loop playsinline></video><figcaption>Black edition</figcaption></figure>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">The unboxing</p>
+      <h2 class="title" style="margin-top:14px">Every order arrives <em>like a gift</em>.</h2>
+      <p class="lede">Your piece travels in our signature tube — wrapped, labelled and sealed with a note, so opening it feels as good as wearing it.</p>
+      <ul>
+        <li><b>i</b><div><strong>Signature tube box</strong><span>Rigid, recyclable, in cream or matte black.</span></div></li>
+        <li><b>ii</b><div><strong>Logo tissue wrap</strong><span>Printed tissue keeps every fold crisp.</span></div></li>
+        <li><b>iii</b><div><strong>Woven neck label</strong><span>Quietly stitched with our mark.</span></div></li>
+        <li><b>iv</b><div><strong>Thank-you card</strong><span>For being a part of our journey.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-art reveal">
+      <svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100 100 m-92 0 a92 92 0 1 1 184 0 a92 92 0 1 1 -184 0"/></defs>
+        <text><textPath href="#circ">Wear your story ✦ Premium tees ✦ Printing ✦ Embroidery ✦ </textPath></text></svg>
+      <img src="assets/boxes-open.png" alt="BoldStitch cream and black packaging boxes">
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">About us</p>
+      <h2 class="title" style="margin-top:14px">Every thread <em>tells a story</em>.</h2>
+      <p class="lead">BoldStitch began with a simple belief: what you wear should say something about who you are. We make premium tees and finish them with printing and embroidery that turns a blank piece into something personal.</p>
+      <p>From choosing the fabric to tying the last knot on a stitch, every step is done with care — and every order leaves our studio packed the way we'd want to receive it.</p>
+      <svg class="stitchline" viewBox="0 0 600 14" preserveAspectRatio="none"><path d="M0 7 C100 0 200 14 300 7 S500 0 600 7"/></svg>
+      <div class="facts"><div><b data-count="100">0</b><span>% cotton tees</span></div><div><b data-count="3">0</b><span>Crafts in-house</span></div><div><b data-count="1">0</b><span>Piece minimum</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contact us</p>
+      <h2 class="title" style="margin-top:14px">Let's stitch <em>something</em> together.</h2>
+      <div class="info">
+        <div><span>Email</span><a href="mailto:hello@boldstitch.in">hello@boldstitch.in</a></div>
+        <div><span>Phone / WhatsApp</span><a href="tel:+910000000000">+91 00000 00000</a></div>
+        <div><span>Instagram</span><a href="#">@boldstitch</a></div>
+        <div><span>Studio hours</span><p>Mon – Sat · 10am – 7pm</p></div>
+      </div>
+    </div>
+    <form class="cform reveal" id="form" novalidate>
+      <div class="chips">
+        <input type="checkbox" id="c1" checked><label for="c1">Premium tees</label>
+        <input type="checkbox" id="c2"><label for="c2">Printing</label>
+        <input type="checkbox" id="c3"><label for="c3">Embroidery</label>
+        <input type="checkbox" id="c4"><label for="c4">Bulk / team order</label>
+      </div>
+      <label>Name<input required name="name" autocomplete="name"></label>
+      <label>Email<input required type="email" name="email" autocomplete="email"></label>
+      <label>Phone<input name="phone" autocomplete="tel"></label>
+      <label>Quantity<input name="qty" inputmode="numeric" placeholder="e.g. 25"></label>
+      <label class="full">Tell us your story<textarea name="msg" placeholder="Design idea, colours, sizes, deadline…"></textarea></label>
+      <button class="btn" type="submit">Send message →</button>
+      <div class="thanks" id="thanks"><div><img src="assets/brand/logo-light.png" alt=""><p class="script">Thank You</p><small>For being a part of our journey</small><i></i><small>We'll be in touch soon</small></div></div>
+    </form>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><img src="assets/brand/logo-light.png" alt="BoldStitch"><p class="script">Wear your story</p></div>
+      <div class="links"><a href="#collection">Shop</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    </div>
+    <div class="copy"><span>© 2026 BoldStitch. All rights reserved.</span><span>Premium Tees · Printing · Embroidery</span></div>
+  </div>
+</footer>
+
+<div class="zoom" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Product preview">
+  <button class="z-close" aria-label="Close">×</button>
+  <div class="z-art"></div>
+  <div class="z-info">
+    <p class="eyebrow z-eyebrow"></p>
+    <h3></h3>
+    <p class="price"></p>
+    <p class="desc"></p>
+    <div class="sizes"><button>S</button><button class="on">M</button><button>L</button><button>XL</button></div>
+    <button class="btn z-add">Add to bag</button>
+  </div>
+</div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/needle.js"></script>
+<script src="assets/js/account.js"></script>
+</body>
+</html>
